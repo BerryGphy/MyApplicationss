@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="key_lebel_inputTemperature">Saisir une température :</string>
+    <string name="key_label_input_temperature_unit">Saisie de l\'unité :</string>
+    <string name="key_button_convert">Convertir</string>
+    <string name="key_label_result">Résultat :</string>
+    <string name="key_result">Résultat</string>
+    <string name="key_input_T">Température</string>
+</resources>

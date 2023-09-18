@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">My Application</string>
+    <string name="key_lebel_inputTemperature">input Temperature</string>
+    <string name="key_label_input_temperature_unit">Input Temperature Unit</string>
+    <string name="key_button_convert">Convert</string>
+    <string name="key_label_result">Result :</string>
+    <string name="key_result">Result</string>
+    <string name="key_input_T">Temperature</string>
+</resources>
