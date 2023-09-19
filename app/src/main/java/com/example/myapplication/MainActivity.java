@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radio_Fahreiheit; // ID du radio bouton F°
     private RadioButton radio_Celcius; // ID du radio bouton C°
     private Button button2; // ID du bouton C°
-    private TextView label_finalResult; // ID du textField contenant le résultat de la conversion
+    private TextView label_finalResult; // ID du texte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,7 @@ public class MainActivity extends AppCompatActivity {
         radio_Celcius = findViewById(R.id.radio_Celcius);
         button2 = findViewById(R.id.button2);
         label_finalResult = findViewById(R.id.label_finalResult);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculateResult();
-            }
-        });
+        button2.setOnClickListener(view -> calculateResult());
     }
     private void calculateResult() {
         double inputValue = Double.parseDouble(editTextNumberDecimal.getText().toString());
