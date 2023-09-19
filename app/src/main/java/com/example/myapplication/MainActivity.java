@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.Vibrator;
+import android.media.MediaPlayer;
 public class MainActivity extends AppCompatActivity {
     private static final int DEFAULT_AMPLITUDE = 100;
     private EditText editTextNumberDecimal; // ID de l'editText
@@ -20,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radio_Celcius; // ID du radio bouton C°
     private Button button2; // ID du bouton C°
     private TextView label_finalResult; // ID du texte
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.boop);
         editTextNumberDecimal = findViewById(R.id.editTextNumberDecimal);
         radioGroup = findViewById(R.id.radioGroup);
         radio_Fahreiheit = findViewById(R.id.radio_Fahreiheit);
@@ -52,5 +54,12 @@ public class MainActivity extends AppCompatActivity {
             label_finalResult.setText(inputValue + "°F");
         }
         vibrate(1000);
+        playButtonClickSound();
+    }
+    private void playButtonClickSound() {
+        if (mediaPlayer != null) {
+            mediaPlayer.seekTo(0); // Réinitialiser la position de lecture
+            mediaPlayer.start(); // Commencer la lecture du son
+        }
     }
 }
