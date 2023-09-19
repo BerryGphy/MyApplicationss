@@ -10,12 +10,12 @@ import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
-    private EditText editTextNumberDecimal;
+    private EditText editTextNumberDecimal; // ID de l'editText
     private RadioGroup radioGroup;
-    private RadioButton radio_Fahreiheit;
-    private RadioButton radio_Celcius;
-    private Button button2;
-    private TextView label_finalResult;
+    private RadioButton radio_Fahreiheit; // ID du radio bouton F°
+    private RadioButton radio_Celcius; // ID du radio bouton C°
+    private Button button2; // ID du bouton C°
+    private TextView label_finalResult; // ID du textField contenant le résultat de la conversion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
