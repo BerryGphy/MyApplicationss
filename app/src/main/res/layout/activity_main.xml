@@ -55,7 +55,7 @@
             android:text="Celcius (°C)" />
 
         <RadioButton
-            android:id="@+id/radio_Fareinheit"
+            android:id="@+id/radio_Fahreiheit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fahrenheit (°F)" />
