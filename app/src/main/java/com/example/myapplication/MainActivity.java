@@ -2,14 +2,18 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.TextView;
+import android.os.Vibrator;
 public class MainActivity extends AppCompatActivity {
+    private static final int DEFAULT_AMPLITUDE = 100;
     private EditText editTextNumberDecimal; // ID de l'editText
     private RadioGroup radioGroup;
     private RadioButton radio_Fahreiheit; // ID du radio bouton F°
@@ -30,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         label_finalResult = findViewById(R.id.label_finalResult);
         button2.setOnClickListener(view -> calculateResult());
     }
+
+    public void vibrate(int duration){
+        duration = Math.max(duration,1);
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator !=null) {
+            vibrator.vibrate(VibrationEffect.createOneShot(duration,DEFAULT_AMPLITUDE));
+        }
+    }
     private void calculateResult() {
         double inputValue = Double.parseDouble(editTextNumberDecimal.getText().toString());
         if (radio_Fahreiheit.isChecked()) {
@@ -39,5 +51,6 @@ public class MainActivity extends AppCompatActivity {
             inputValue = (inputValue*9/5)+32;
             label_finalResult.setText(inputValue + "°F");
         }
+        vibrate(1000);
     }
 }
