@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radio_Fahreiheit; // ID du radio bouton F°
     private RadioButton radio_Celcius; // ID du radio bouton C°
-    private Button button2; // ID du bouton C°
+    private Button button2; // ID du bouton convertir
     private TextView label_finalResult; // ID du texte
     private MediaPlayer mediaPlayer;
 
@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mediaPlayer = MediaPlayer.create(this, R.raw.boop);
+        mediaPlayer = MediaPlayer.create(this, R.raw.kwak);
         editTextNumberDecimal = findViewById(R.id.editTextNumberDecimal);
         radioGroup = findViewById(R.id.radioGroup);
         radio_Fahreiheit = findViewById(R.id.radio_Fahreiheit);
         radio_Celcius = findViewById(R.id.radio_Celcius);
         button2 = findViewById(R.id.button2);
         label_finalResult = findViewById(R.id.label_finalResult);
-        button2.setOnClickListener(view -> calculateResult());
+        //button2.setOnClickListener(view -> calculateResult());
     }
 
     public void vibrate(int duration){
@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         if (vibrator !=null) {
             vibrator.vibrate(VibrationEffect.createOneShot(duration,DEFAULT_AMPLITUDE));
         }
+    }
+    public void action_convert(android.view.View v){
+        calculateResult();
     }
     private void calculateResult() {
         double inputValue = Double.parseDouble(editTextNumberDecimal.getText().toString());
