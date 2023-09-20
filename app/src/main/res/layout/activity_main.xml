@@ -18,79 +18,78 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="273dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/key_input_T"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_InputTemperature" />
 
-    <TextView
-        android:id="@+id/label_temperature_unit"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/key_label_input_temperature_unit"
-        app:layout_constraintStart_toStartOf="@+id/label_InputTemperature"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        app:layout_constraintStart_toStartOf="@+id/label_temperature_unit"
-        app:layout_constraintTop_toBottomOf="@+id/label_temperature_unit">
-
-        <RadioButton
-            android:id="@+id/radio_Celcius"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Celcius (°C)" />
-
-        <RadioButton
-            android:id="@+id/radio_Fahreiheit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fahrenheit (°F)" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="107dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="88dp"
         android:onClick="action_convert"
         android:text="@string/key_button_convert"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/switchAuto"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
     <TextView
         android:id="@+id/label_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:text="@string/key_label_result"
-        app:layout_constraintStart_toStartOf="@+id/label_temperature_unit"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/label_finalResult"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="@string/key_result"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerExit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_result" />
+
+    <Spinner
+        android:id="@+id/spinnerEntry"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/array_temp_unit"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/label_InputTemperature" />
+
+    <Spinner
+        android:id="@+id/spinnerExit"
+        android:layout_width="138dp"
+        android:layout_height="49dp"
+        android:entries="@array/array_temp_unit"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/label_finalResult" />
+
+    <Switch
+        android:id="@+id/switchAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Auto-Convert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEntry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
