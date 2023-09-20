@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // Appel de la méthode de conversion automatique lorsque le switch est activé
                 if (isChecked) {
-                    performAutoConversion();
+                    calculateResult();
                 }
             }
         });
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Appel de la méthode de conversion automatique lorsque la sélection change
                 if (switchAuto.isChecked()) {
-                    performAutoConversion();
+                    calculateResult();
                 }
             }
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Appel de la méthode de conversion automatique lorsque la sélection change
                 if (switchAuto.isChecked()) {
-                    performAutoConversion();
+                    calculateResult();
                 }
             }
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (switchAuto.isChecked()) {
-                    performAutoConversion();
+                    calculateResult();
                 }
             }
 
@@ -145,9 +145,6 @@ public class MainActivity extends AppCompatActivity {
         }
         vibrate(1000);
         playButtonClickSound();
-    }
-    private void performAutoConversion() {
-        calculateResult();
     }
     private void playButtonClickSound() {
         if (mediaPlayer != null) {
