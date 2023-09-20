@@ -147,51 +147,8 @@ public class MainActivity extends AppCompatActivity {
         playButtonClickSound();
     }
     private void performAutoConversion() {
-        double inputValue = 0.0;
-        try {
-            inputValue = Double.parseDouble(editTextNumberDecimal.getText().toString());
-        } catch (NumberFormatException e) {
-            label_finalResult.setText("Entrée invalide");
-            return;
-        }
-
-        String itemEntry = spinnerEntry.getSelectedItem().toString();
-        String itemExit = spinnerExit.getSelectedItem().toString();
-
-        if (itemEntry.equals(itemExit)) {
-            label_finalResult.setText(inputValue + "");
-        } else if ("°F".equals(itemEntry)) {
-            if ("°K".equals(itemExit)) {
-                inputValue = (inputValue + 459.67) / 1.8;
-                label_finalResult.setText(inputValue + "");
-            } else if ("°C".equals(itemExit)) {
-                inputValue = (inputValue - 32) * 5 / 9;
-                label_finalResult.setText(inputValue + "");
-            }
-        } else if ("°K".equals(itemEntry)) {
-            if ("°F".equals(itemExit)) {
-                inputValue = inputValue * 1.8 - 459.67;
-                label_finalResult.setText(inputValue + "");
-            } else if ("°C".equals(itemExit)) {
-                inputValue = inputValue - 273.15;
-                label_finalResult.setText(inputValue + "");
-            }
-        } else if ("°C".equals(itemEntry)) {
-            if ("°K".equals(itemExit)) {
-                inputValue = inputValue + 273.15;
-                label_finalResult.setText(inputValue + "");
-            } else if ("°F".equals(itemExit)) {
-                inputValue = (inputValue * 9 / 5) + 32;
-                label_finalResult.setText(inputValue + "");
-            }
-        } else {
-            label_finalResult.setText("Erreur");
-        }
-
-        vibrate(1000);
-        playButtonClickSound();
+        calculateResult();
     }
-
     private void playButtonClickSound() {
         if (mediaPlayer != null) {
             mediaPlayer.seekTo(2500); // Réinitialiser la position de lecture
