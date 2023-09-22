@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         switchAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Appel de la méthode de conversion automatique lorsque le switch est activé
                 if (isChecked) {
                     calculateResult();
                 }
@@ -50,17 +49,14 @@ public class MainActivity extends AppCompatActivity {
         spinnerEntry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Appel de la méthode de conversion automatique lorsque la sélection change
                 if (switchAuto.isChecked()) {
                     calculateResult();
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }
         });
-
         spinnerExit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -69,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     calculateResult();
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }
@@ -78,14 +73,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2){
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (switchAuto.isChecked()) {
                     calculateResult();
                 }
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
             }
@@ -148,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void playButtonClickSound() {
         if (mediaPlayer != null) {
-            mediaPlayer.seekTo(2500); // Réinitialiser la position de lecture
+            mediaPlayer.seekTo(2500); // Réinitialise la position de lecture
             mediaPlayer.start();
         }
     }
